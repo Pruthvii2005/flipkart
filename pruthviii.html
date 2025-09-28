@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pruthviraj Borase - Web Developer Portfolio</title>
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #1db954;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #1ed760;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #181818;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a.active {
+      border-bottom: 2px solid #1db954;
+      padding-bottom: 2px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 6rem auto 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header section */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1rem;
+      background: #1db954;
+      color: #121212;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', Courier, monospace;
+      box-shadow: 0 4px 10px rgba(29, 185, 84, 0.7);
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
+    }
+    header h2 {
+      font-weight: 400;
+      color: #a5a5a5;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    header p.tagline {
+      font-style: italic;
+      font-size: 1rem;
+      color: #bbbbbb;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #333;
+    }
+    section:last-child {
+      border-bottom: none;
+    }
+    section h3 {
+      font-size: 1.8rem;
+      color: #1db954;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    section h3::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #1db954;
+      bottom: -5px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    /* About */
+    #about p {
+      font-size: 1.1rem;
+      color: #d1d1d1;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Skills */
+    ul.skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 0;
+    }
+    ul.skills-list li {
+      background-color: #1db954;
+      color: #121212;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+      box-shadow: 0 3px 8px rgba(29,185,84,0.6);
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+    ul.skills-list li:hover {
+      background-color: #17c84f;
+    }
+
+    /* Projects */
+    ul.projects-list {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: auto;
+    }
+    ul.projects-list li {
+      background-color: #222;
+      padding: 20px 25px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    ul.projects-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(29, 185, 84, 0.8);
+    }
+    ul.projects-list strong {
+      font-size: 1.25rem;
+      display: block;
+      margin-bottom: 8px;
+      color: #1db954;
+    }
+    ul.projects-list li p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    /* Contact */
+    #contact p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #d1d1d1;
+    }
+    #contact a {
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #333;
+      margin-top: 3rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        justify-content: center;
+        padding: 1rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .logo {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about" class="active">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="logo" aria-label="Logo with initials PB">PB</div>
+      <h1>Pruthviraj Borase</h1>
+      <h2>Web Developer</h2>
+      <p class="tagline">Crafting smart and interactive web experiences</p>
+    </header>
+
+    <section id="about">
+      <h3>About Me</h3>
+      <p>
+        I am currently a third-year BCA (Bachelor of Computer Applications) student with a passion for web development. I enjoy creating dynamic and user-friendly websites using modern technologies. I am eager to learn and continuously improve my skills in programming and software development to build impactful digital experiences.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h3>Skills</h3>
+      <ul class="skills-list" aria-label="List of skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h3>Projects</h3>
+      <ul class="projects-list">
+        <li>
+          <strong>E-commerce Website</strong>
+          <p>A full-featured online store with shopping cart, product pages, and payment gateway.</p>
+        </
